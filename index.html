@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apple Support</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      background-color: #f2f2f7;
+      color: #1d1d1f;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+
+    header {
+      width: 100%;
+      text-align: center;
+      padding: 30px 0 15px;
+      background-color: #ffffff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    .apple-logo {
+      width: 34px;
+      height: 34px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 600;
+      margin: 8px 0 0;
+    }
+
+    .support-box {
+      max-width: 600px;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 24px;
+      margin: 40px 20px 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .support-box h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .support-box p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 8px 0;
+    }
+
+    #popup-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.3);
+      z-index: 999;
+      display: none;
+    }
+
+    #popup {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      color: #000;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.2);
+      padding: 24px 20px;
+      width: 90%;
+      max-width: 320px;
+      text-align: center;
+      z-index: 1000;
+      display: none;
+    }
+
+    #popup h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    #popup p {
+      font-size: 15px;
+      margin: 8px 0;
+    }
+
+    #popup button {
+      margin-top: 14px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007aff;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 500;
+      box-shadow: 0 4px 10px rgba(0, 122, 255, 0.25);
+    }
+
+    #popup button:hover {
+      background-color: #0066cc;
+    }
+
+    .call-button {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #34c759;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(52,199,89,0.3);
+    }
+
+    .call-button:hover {
+      background-color: #28a745;
+    }
+
+    #popup .icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 400px) {
+      #popup {
+        max-width: 92%;
+        padding: 20px 16px;
+      }
+
+      #popup p {
+        font-size: 14px;
+      }
+
+      #popup button {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img class="apple-logo" src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple Logo" />
+    <h1>Apple Support</h1>
+  </header>
+
+  <div class="support-box">
+    <h2>Welcome to Apple Support</h2>
+    <p>If you need assistance with your Apple ID, payments, or device security, we’re here to help.</p>
+    <p>📞 Toll-Free: <strong>+1 (800) 733-3186</strong></p>
+  </div>
+
+  <div id="popup-overlay"></div>
+
+  <div id="popup">
+    <div class="icon">⚠️</div>
+    <h2>Warning</h2>
+    <p>Suspicious activity has been identified on your Apple ID <strong>(Ref: 100173984452)</strong>.</p>
+  <p>This includes a pending Apple Pay transaction for <span class="highlight">$599.26</span> at the <strong>Apple Store - Orlando, FL</strong>.</p>
+  <p>Additionally, we've observed repeated failed login attempts and unauthorized efforts to activate Apple Pay from unrecognized devices.</p>
+  <p>To protect your information, we have blocked these activities and are reviewing the transaction.</p>
+  <p>If this request was legitimate, no further steps are necessary — it will process within <strong>24 hours</strong>.</p>
+  <p>If it wasn't you, please call Apple Support immediately at <span class="highlight">(850) 448-1860</span>.</p>
+  <p>Need help? Use the support options below</p>
+  <p>Your digital safety is our top concern. Please act promptly.<br><strong>Stay secure,</strong><br>Apple Fraud Prevention Team</p>
+
+</strong>.</p>
+    <a href="tel:+1 (800) 733-3186" class="call-button">📞 Call Now</a>
+    <p>The transaction will be processed in 24 hours unless action is taken.</p>
+    <button onclick="closePopup()">Dismiss</button>
+  </div>
+
+  <script>
+    function showPopup() {
+      document.getElementById('popup').style.display = 'block';
+      document.getElementById('popup-overlay').style.display = 'block';
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+      document.getElementById('popup-overlay').style.display = 'none';
+
+      // Show again immediately
+      showPopup();
+    }
+
+    // Initial popup show after 2 seconds
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        showPopup();
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
